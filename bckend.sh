@@ -10,6 +10,11 @@ if [ "$conn" = "y" -o -z $conn ]
     then
         echo "Installing express and mongoose"
         npm install express mongoose
+        read -p "Should I bundle an express app with router?y/n: " expressQ
+        if [ "$expressQ" = "y" ]
+            then
+                npx express-generator
+        fi
         echo "Express and mongoose installed"
     else
         break 1
