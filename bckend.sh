@@ -8,12 +8,15 @@ npm init -y
 read -p "Are you connected to the internet?y/n: " conn
 if [ "$conn" = "y" -o -z $conn ]
     then
-        echo "Installing express and mongoose"
-        npm install express mongoose
+        echo "Installing express, mongoose, eslint(airbnb)"
+        npm install express mongoose eslint
+        # use express generator
         read -p "Should I bundle an express app with router?y/n: " expressQ
         if [ "$expressQ" = "y" ]
             then
-                npx express-generator
+                npx express-generator --no-view
+            else
+                break 1
         fi
         echo "Express and mongoose installed"
     else
